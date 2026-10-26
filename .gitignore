@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Downloaded corpus, embedding model, and generated database
+data/
+.cache/
+chroma_store/
+*.tar.gz
