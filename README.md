@@ -112,3 +112,6 @@ and they were all about the same)
 - explained the set up to me and helped me install Ollama and download Qwen
 
 Citations: Used Codex GPT-6.1 Sol Light. CMU Dataset used: https://www.cs.cmu.edu/~ark/personas/
+
+### Limitations:
+Certain broad searches such as "recommend me a dystopian movie" or "recommend me something that is action-filled" returned results that didn't match the semantic meaning of the input (Ex: the dystopian request returned a bunch of drama/comedy movies).  Different embedding models were tested but they all yielded about the same recommendation quality. I also tried to ask Codex to embed concise summaries of the movies rather than full descriptions in case the meaning got watered down for some of them with long descriptions. The quality of hth results still remained the same. 
