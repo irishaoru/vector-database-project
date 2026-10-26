@@ -1,0 +1,1038 @@
+{
+  "embedding_model": "nomic-ai/nomic-embed-text-v1.5",
+  "embedding_revision": "e9b6763023c676ca8431644204f50c2b100d9aab",
+  "llm_model": "qwen2.5:1.5b",
+  "summary_version": "retrieval-synopsis-v1",
+  "seed": 26,
+  "source_movie_count": 500,
+  "requested_sample": 60,
+  "evaluated_movie_count": 53,
+  "excluded_from_both": [
+    {
+      "movie_id": "cmu:22479768",
+      "title": "Take A Hard Ride",
+      "error_type": "ValueError"
+    },
+    {
+      "movie_id": "cmu:26004682",
+      "title": "Living in A Perfect World",
+      "error_type": "ValueError"
+    },
+    {
+      "movie_id": "cmu:45772",
+      "title": "Rocky",
+      "error_type": "ValueError"
+    },
+    {
+      "movie_id": "cmu:2906378",
+      "title": "Le Magnifique",
+      "error_type": "ValueError"
+    },
+    {
+      "movie_id": "cmu:3875037",
+      "title": "State of Dogs",
+      "error_type": "ValueError"
+    },
+    {
+      "movie_id": "cmu:32907230",
+      "title": "The Lure of the Bush",
+      "error_type": "ValueError"
+    },
+    {
+      "movie_id": "cmu:23910715",
+      "title": "The Admiral Was a Lady",
+      "error_type": "ValueError"
+    }
+  ],
+  "metadata_filters_used": false,
+  "queries": [
+    {
+      "query": "a dystopian movie",
+      "expected_titles": [
+        "Appleseed",
+        "Fantastic Planet",
+        "The Hunger Games"
+      ],
+      "scored": true,
+      "full_plot": {
+        "top_3": [
+          "Appleseed",
+          "Fantastic Planet",
+          "Malèna"
+        ],
+        "first_expected_rank": 1,
+        "hit_at_3": true
+      },
+      "synopsis": {
+        "top_3": [
+          "Novocaine",
+          "Fantastic Planet",
+          "Malèna"
+        ],
+        "first_expected_rank": 2,
+        "hit_at_3": true
+      }
+    },
+    {
+      "query": "a creepy dystopian movie",
+      "expected_titles": [
+        "Appleseed",
+        "Fantastic Planet",
+        "The Hunger Games"
+      ],
+      "scored": true,
+      "full_plot": {
+        "top_3": [
+          "Fantastic Planet",
+          "Appleseed",
+          "Malèna"
+        ],
+        "first_expected_rank": 1,
+        "hit_at_3": true
+      },
+      "synopsis": {
+        "top_3": [
+          "Fantastic Planet",
+          "The Evil Dead",
+          "Appleseed"
+        ],
+        "first_expected_rank": 1,
+        "hit_at_3": true
+      }
+    },
+    {
+      "query": "an action filled movie",
+      "expected_titles": [
+        "Appleseed",
+        "End Game",
+        "The Hunger Games"
+      ],
+      "scored": true,
+      "full_plot": {
+        "top_3": [
+          "Thrashin'",
+          "Novocaine",
+          "StreetDance 3D"
+        ],
+        "first_expected_rank": 12,
+        "hit_at_3": false
+      },
+      "synopsis": {
+        "top_3": [
+          "China Moon",
+          "Novocaine",
+          "The Good Life"
+        ],
+        "first_expected_rank": 20,
+        "hit_at_3": false
+      }
+    },
+    {
+      "query": "a light hearted romantic comedy",
+      "expected_titles": [
+        "Easy A"
+      ],
+      "scored": true,
+      "full_plot": {
+        "top_3": [
+          "How to Eat Like a Child",
+          "Easy A",
+          "Pennies from Heaven"
+        ],
+        "first_expected_rank": 2,
+        "hit_at_3": true
+      },
+      "synopsis": {
+        "top_3": [
+          "Easy A",
+          "How to Eat Like a Child",
+          "Novocaine"
+        ],
+        "first_expected_rank": 1,
+        "hit_at_3": true
+      }
+    },
+    {
+      "query": "Teenagers are forced by a totalitarian government to fight to the death for public entertainment.",
+      "expected_titles": [
+        "The Hunger Games"
+      ],
+      "scored": true,
+      "full_plot": {
+        "top_3": [
+          "Gurushetram - 24 Hours of Anger",
+          "The Hunger Games",
+          "Love, Mary"
+        ],
+        "first_expected_rank": 2,
+        "hit_at_3": true
+      },
+      "synopsis": {
+        "top_3": [
+          "The Evil Dead",
+          "The Hunger Games",
+          "Gurushetram - 24 Hours of Anger"
+        ],
+        "first_expected_rank": 2,
+        "hit_at_3": true
+      }
+    },
+    {
+      "query": "An anthology connecting unrelated lives through the same firearm.",
+      "expected_titles": [
+        "The Gun"
+      ],
+      "scored": true,
+      "full_plot": {
+        "top_3": [
+          "The Gun",
+          "Novocaine",
+          "Othello"
+        ],
+        "first_expected_rank": 1,
+        "hit_at_3": true
+      },
+      "synopsis": {
+        "top_3": [
+          "The Gun",
+          "Novocaine",
+          "The Evil Dead"
+        ],
+        "first_expected_rank": 1,
+        "hit_at_3": true
+      }
+    },
+    {
+      "query": "A housebound woman fears she imagined a homicide because nobody can verify her account.",
+      "expected_titles": [
+        "Frozen with Fear"
+      ],
+      "scored": true,
+      "full_plot": {
+        "top_3": [
+          "Frozen with Fear",
+          "Forest of the Damned 2",
+          "Postmortem"
+        ],
+        "first_expected_rank": 1,
+        "hit_at_3": true
+      },
+      "synopsis": {
+        "top_3": [
+          "Frozen with Fear",
+          "Forest of the Damned 2",
+          "Postmortem"
+        ],
+        "first_expected_rank": 1,
+        "hit_at_3": true
+      }
+    }
+  ],
+  "limitations": [
+    "Pilot sample includes diagnostic anchors plus seeded random distractors, not all 500 movies.",
+    "Summaries are LLM-selected original sentences, not rewritten synopses.",
+    "Expected-title sets are diagnostic examples, not exhaustive relevance judgments.",
+    "Query set was selected before this experiment; it is not an independent held-out benchmark."
+  ],
+  "movies": [
+    {
+      "id": "cmu:1788654",
+      "metadata": {
+        "is_romantic_comedy": false,
+        "token_count": 925,
+        "source": "CMU Movie Summary Corpus",
+        "release_year": 2001,
+        "title": "Novocaine",
+        "release_date": "2001-09-08",
+        "genres": "{\"/m/01jfsb\": \"Thriller\", \"/m/0lsxr\": \"Crime Fiction\", \"/m/0hj3m_x\": \"Crime Comedy\", \"/m/01t_vv\": \"Comedy-drama\", \"/m/07s9rl0\": \"Drama\", \"/m/01z4y\": \"Comedy\", \"/m/0vgkd\": \"Black comedy\", \"/m/03j0dp\": \"Neo-noir\"}",
+        "movie_id": "1788654"
+      },
+      "synopsis": "Generally, the film is a dark and quirky \"tragicomedy\" concerning an \"everyman\" protagonist a fairly pleasant but rather innocuous, ordinary and uneventful life. But all of this gets derailed, and Frank's life descends into an increasingly complex mess, from the minute a beautiful and seductive new patient named Susan Ivey  comes to him, seeking a root canal and a little pain relief... On Susan's initial office visit, Frank schedules her for a root canal the very next day, and offers her some Ibuprofen to address her pain in the meanwhile. Claiming that she is allergic to the offered medication, Susan requests a prescription for the addictive pain-killer Demerol.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:20591333",
+      "metadata": {
+        "release_year": 2007,
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 56,
+        "movie_id": "20591333",
+        "release_date": "2007-01-20",
+        "title": "The Good Life",
+        "is_romantic_comedy": false,
+        "genres": "{\"/m/07s9rl0\": \"Drama\", \"/m/0219x_\": \"Indie\"}"
+      },
+      "synopsis": "A movie about the travails of Jason , a young gas station attendant and movie projectionist living in Nebraska. His encounters with various social difficulties and with Frances , a beautiful and enigmatic young woman leads to dramatic changes and decisions in his life.",
+      "method": "already_short"
+    },
+    {
+      "id": "cmu:2322506",
+      "metadata": {
+        "is_romantic_comedy": false,
+        "movie_id": "2322506",
+        "title": "Fantastic Planet",
+        "genres": "{\"/m/02hmvc\": \"Short Film\", \"/m/06n90\": \"Science Fiction\", \"/m/01hmnh\": \"Fantasy\", \"/m/03q4nz\": \"World cinema\", \"/m/0hcr\": \"Animation\"}",
+        "token_count": 1658,
+        "source": "CMU Movie Summary Corpus",
+        "release_date": "1973-12-01",
+        "release_year": 1973
+      },
+      "synopsis": "The film depicts a future in which human beings, known as \"Oms\" , are creatures on the Draags' home planet, where they are seen as pests and sometimes kept as pets . The Draags are an alien species which is humanoid in shape but a hundred times larger than humans, with blue skin, fan-like earlobes and huge, protruding red eyes. The Draags also live much longer than human beings – one Draag week equals a human year. Some Oms are domesticated as pets, but others run wild, and are periodically exterminated.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:23438736",
+      "metadata": {
+        "movie_id": "23438736",
+        "title": "Easy A",
+        "release_date": "2010-09-16",
+        "genres": "{\"/m/06cvj\": \"Romantic comedy\", \"/m/0vgkd\": \"Black comedy\", \"/m/02l7c8\": \"Romance Film\", \"/m/01z4y\": \"Comedy\", \"/m/02b5_l\": \"Teen\"}",
+        "token_count": 679,
+        "is_romantic_comedy": true,
+        "source": "CMU Movie Summary Corpus",
+        "release_year": 2010
+      },
+      "synopsis": "Olive Penderghast  lies to her best friend Rhiannon  about going on a date in order to get out of camping with Rhi's hippie parents. Instead, she hangs around the house all weekend listening to Natasha Bedingfield's \"Pocketful of Sunshine\". The following Monday, pressed by Rhiannon, Olive lies about losing her virginity to a college guy. Marianne , a strictly religious girl at their school, overhears her telling the lie and soon it spreads like wildfire.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:25807103",
+      "metadata": {
+        "title": "The Secret Cinema",
+        "genres": "{\"/m/02hmvc\": \"Short Film\"}",
+        "source": "CMU Movie Summary Corpus",
+        "release_year": 1968,
+        "is_romantic_comedy": false,
+        "movie_id": "25807103",
+        "release_date": "1968-05-01",
+        "token_count": 102
+      },
+      "synopsis": "{{tone}} Jane  is a secretary who doesn't know that her life is being filmed and shown in theaters, or that those who are closest to her are in on it. She's being sexually harassed by her corpulent boss , humiliated by her fey boyfriend, given the gaslight treatment by the people around her, et cetera, and she doesn't know why... but she's starting to suspect that something isn't quite right.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:31186339",
+      "metadata": {
+        "movie_id": "31186339",
+        "title": "The Hunger Games",
+        "release_date": "2012-03-12",
+        "is_romantic_comedy": false,
+        "release_year": 2012,
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 1060,
+        "genres": "{\"/m/03btsm8\": \"Action/Adventure\", \"/m/06n90\": \"Science Fiction\", \"/m/02kdv5l\": \"Action\", \"/m/07s9rl0\": \"Drama\"}"
+      },
+      "synopsis": "The nation of Panem consists of a wealthy Capitol and twelve poorer districts. As punishment for a past rebellion, each district must provide a boy and girl  between the ages of 12 and 18 selected by lottery  for the annual Hunger Games. The tributes must fight to the death in an arena; the sole survivor is rewarded with fame and wealth. In her first Reaping, 12-year-old Primrose Everdeen is chosen from District 12.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:34410222",
+      "metadata": {
+        "source": "CMU Movie Summary Corpus",
+        "movie_id": "34410222",
+        "genres": "{\"/m/07s9rl0\": \"Drama\"}",
+        "release_year": 1974,
+        "is_romantic_comedy": false,
+        "title": "The Gun",
+        "release_date": "1974-11-13",
+        "token_count": 36
+      },
+      "synopsis": "A series of interweaving stories that tell the journey of a handgun as it passes from one owner to another.{{cite web}}",
+      "method": "already_short"
+    },
+    {
+      "id": "cmu:4072739",
+      "metadata": {
+        "is_romantic_comedy": false,
+        "genres": "{\"/m/01jfsb\": \"Thriller\", \"/m/02n4kr\": \"Mystery\", \"/m/0lsxr\": \"Crime Fiction\"}",
+        "movie_id": "4072739",
+        "title": "Frozen with Fear",
+        "token_count": 67,
+        "release_year": 2001,
+        "source": "CMU Movie Summary Corpus",
+        "release_date": "2001-06-26"
+      },
+      "synopsis": "Katherine Sullivan, a severe agoraphobic, witnesses the murder of her husband and speaks with the investigating detective. Then both the body and the detective disappear. Katherine hires private investigator Jack Mize to figure out, only Mize isn't so sure Katherine's version of reality is the truth.",
+      "method": "already_short"
+    },
+    {
+      "id": "cmu:5272176",
+      "metadata": {
+        "is_romantic_comedy": false,
+        "release_date": "2006",
+        "token_count": 405,
+        "genres": "{\"/m/01jfsb\": \"Thriller\", \"/m/03btsm8\": \"Action/Adventure\", \"/m/02kdv5l\": \"Action\", \"/m/07s9rl0\": \"Drama\"}",
+        "source": "CMU Movie Summary Corpus",
+        "movie_id": "5272176",
+        "release_year": 2006,
+        "title": "End Game"
+      },
+      "synopsis": "The president is on his way to give a speech. While he is traveling there a man shows up with a camera. A reporter tries to ask a member of the secret service a question. When the president enters he is shot by the man with the camera.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:6215073",
+      "metadata": {
+        "release_date": "2005-01-14",
+        "release_year": 2005,
+        "title": "Appleseed",
+        "token_count": 997,
+        "movie_id": "6215073",
+        "is_romantic_comedy": false,
+        "genres": "{\"/m/01jfsb\": \"Thriller\", \"/m/06n90\": \"Science Fiction\", \"/m/0gw5n2f\": \"Japanese Movies\", \"/m/03q4nz\": \"World cinema\", \"/m/01zhp\": \"Computer Animation\", \"/m/0hcr\": \"Animation\", \"/m/03btsm8\": \"Action/Adventure\", \"/m/0jxy\": \"Anime\", \"/m/02kdv5l\": \"Action\"}",
+        "source": "CMU Movie Summary Corpus"
+      },
+      "synopsis": "Deunan Knute is a young highly skilled female soldier and is one of the last survivors of the Global War. During a battle, she is rescued by Hitomi, a Second Generation Bioroid. Deunan attempts to escape from a hospital and takes Hitomi hostage, but is stopped by Briareos Hecatonchires, her former lover, who is now a cyborg. She learns that the war had ended and she is in a Utopian city called Olympus.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:484102",
+      "metadata": {
+        "is_romantic_comedy": false,
+        "release_date": "2000-10-27",
+        "title": "Malèna",
+        "source": "CMU Movie Summary Corpus",
+        "release_year": 2000,
+        "movie_id": "484102",
+        "token_count": 738,
+        "genres": "{\"/m/07s9rl0\": \"Drama\", \"/m/03q4nz\": \"World cinema\"}"
+      },
+      "synopsis": "The film is set in Sicily in 1940 during World War II just as Italy enters the war. Malena's husband, Nino Scordia, who left to join the military is presumed dead. Malena tries to cope with her loss, as the town she has moved to tries to deal with this beautiful woman who gets the attention of all the local men, including the 12-year-old Renato. However, in spite of the gossip, she continues to be faithful to her husband.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:8454631",
+      "metadata": {
+        "token_count": 1356,
+        "genres": "{\"/m/01jfsb\": \"Thriller\", \"/m/02n4kr\": \"Mystery\", \"/m/0glj9q\": \"Erotic thriller\", \"/m/09blyk\": \"Psychological thriller\", \"/m/03j0dp\": \"Neo-noir\"}",
+        "release_year": 1994,
+        "release_date": "1994-03-04",
+        "source": "CMU Movie Summary Corpus",
+        "title": "China Moon",
+        "movie_id": "8454631",
+        "is_romantic_comedy": false
+      },
+      "synopsis": "The film opens as detectives Kyle Bodine  and Lamar Dickey  investigate a murder scene. Bodine tutors Dickey in the ways of homicide investigations, stressing that all murderers make stupid mistakes, which is how they get caught. At a local bar, Bodine propositions Rachel Munro  who blows him off. Rachel is married to wealthy banker Rupert Munro .",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:17938594",
+      "metadata": {
+        "release_date": "1973-08-11",
+        "release_year": 1973,
+        "title": "La ragazza di via Condotti",
+        "genres": "{\"/m/01jfsb\": \"Thriller\", \"/m/01rbb\": \"Crime\"}",
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 70,
+        "is_romantic_comedy": false,
+        "movie_id": "17938594"
+      },
+      "synopsis": "Sandro, a detective, finds his wife strangled. His girlfriend Tiffany , who works as a photographer, makes a \"Blow up\" from a photo, what Sandro finds beside the victim. Sandro and Tiffany are looking for the woman on the photo, Laura . They found her in a night club in Rome.",
+      "method": "already_short"
+    },
+    {
+      "id": "cmu:35131808",
+      "metadata": {
+        "title": "How to Eat Like a Child",
+        "release_year": 1981,
+        "token_count": 140,
+        "release_date": "1981-09-22",
+        "movie_id": "35131808",
+        "genres": "{\"/m/05p553\": \"Comedy film\", \"/m/0hqxf\": \"Family Film\", \"/m/07s9rl0\": \"Drama\", \"/m/04t36\": \"Musical\"}",
+        "source": "CMU Movie Summary Corpus",
+        "is_romantic_comedy": false
+      },
+      "synopsis": "Dick Van Dyke opens the musical, stating \"When you're a child, having fun is what you do for a living\". As the \"guest adult\", Van Dyke seeks admission to the secret world of children and persuades a group of 15 singing and dancing kids to guide him on a wry and whimsical trip through childhood. Throughout a series of 12 comedy sketches and songs, the special takes an irreverent, but good-natured look at the time-honored dilemmas that children face. A couple of the numbers take on more serious issues that children face, including \"How to Wait\" , and \"The Kid Inside\" .",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:18066729",
+      "metadata": {
+        "release_date": "1999-06-05",
+        "is_romantic_comedy": false,
+        "movie_id": "18066729",
+        "genres": "{\"/m/0gw5n2f\": \"Japanese Movies\"}",
+        "title": "Poppoya",
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 98,
+        "release_year": 1999
+      },
+      "synopsis": "A railway stationmaster at a dying end-of-the-line village in Hokkaido is haunted by memories of his dead wife and daughter. When the railroad line is scheduled to be closed, he is offered a job at a hotel, but he is emotionally unable to part with his career as a railroader. His life takes a turn when he meets a young woman with an interest in trains who resembles his daughter.based on {{Amg movie}}",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:33059077",
+      "metadata": {
+        "genres": "{\"/m/0556j8\": \"Buddy film\", \"/m/07s9rl0\": \"Drama\", \"/m/01z4y\": \"Comedy\"}",
+        "token_count": 596,
+        "is_romantic_comedy": false,
+        "release_date": "2011-05-04",
+        "movie_id": "33059077",
+        "title": "Sunny",
+        "release_year": 2011,
+        "source": "CMU Movie Summary Corpus"
+      },
+      "synopsis": "{{plot}} Jung Su-Ji is a quiet, mysterious beauty; whenever she speaks to Na-Mi, it is always with disdain.Towards the end of the film, Na-Mi confronts Su-Ji and learns that Su-Ji’s stepmother is from Jeollado, the same city Na-Mi is from, making Su-Ji automatically biased against Na-Mi. The two make up after drinking soju, and crying out their frustrations together. Na-Mi is accepted into their group as their seventh member, after she unexpectedly proves herself against a rival group from a different school. Chiun-Hwa suggests naming their group; they settle on \"Sunny\", after a nighttime radio DJ responds to their letter on air.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:3098782",
+      "metadata": {
+        "source": "CMU Movie Summary Corpus",
+        "title": "Strictly Business",
+        "is_romantic_comedy": true,
+        "release_date": "1991-11-08",
+        "movie_id": "3098782",
+        "release_year": 1991,
+        "genres": "{\"/m/06cvj\": \"Romantic comedy\", \"/m/02l7c8\": \"Romance Film\", \"/m/01z4y\": \"Comedy\"}",
+        "token_count": 89
+      },
+      "synopsis": "Fun-loving Bobby is a mail clerk in a big firm, but he has a trump card, his best friend Waymon, an African-American who is almost a partner in the firm. They make a deal: Waymon will try to move Bobby to the trainee broker program if he will help him meet Natalie, the girl of his dreams. There's only one problem, everyone will have to change.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:12152908",
+      "metadata": {
+        "genres": "{\"/m/01z4y\": \"Comedy\", \"/m/0220p9g\": \"Musical comedy\"}",
+        "title": "The Rocker",
+        "release_date": "2008-08-20",
+        "release_year": 2008,
+        "movie_id": "12152908",
+        "token_count": 1096,
+        "is_romantic_comedy": false,
+        "source": "CMU Movie Summary Corpus"
+      },
+      "synopsis": "{{Plot}} Robert \"Fish\" Fishman  was the drummer for Vesuvius, a local heavy metal/glam metal band from Cleveland, Ohio. After playing a local gig, Fish's bandmates are approached by their manager, who says that a label is interested in them but will not sign them unless they get rid of Fish. The band agrees. Twenty years later, Fish leads an unhappy life by failing at another cubicle job, breaking up with his girlfriend, and having to move in with his sister , her husband, and two kids.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:1480747",
+      "metadata": {
+        "release_year": 1991,
+        "title": "House Party 2",
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 1524,
+        "genres": "{\"/m/01q03\": \"Cult\", \"/m/01j1n2\": \"Coming of age\", \"/m/01z4y\": \"Comedy\", \"/m/02b5_l\": \"Teen\"}",
+        "release_date": "1991-10-23",
+        "movie_id": "1480747",
+        "is_romantic_comedy": false
+      },
+      "synopsis": "{{plot}} Following the sudden death of Kid's father \"Pop\" the local church has donated a scholarship fund to Kid so that he can go to college. Play now drives a sports car called \"Foreplay\" and is the manager of a record store. He attracts the attention of music producer Shelia Landreaux whose talent scout Rick spotted Kid N' Play performing at a community center. Shelia is willing to help finance Kid N'Play's demo session if they can commit to taking the act to the top of the charts.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:5733324",
+      "metadata": {
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 525,
+        "is_romantic_comedy": false,
+        "title": "Easy Money",
+        "genres": "{\"/m/0219x_\": \"Indie\", \"/m/01z4y\": \"Comedy\"}",
+        "movie_id": "5733324",
+        "release_date": "1983-08-19",
+        "release_year": 1983
+      },
+      "synopsis": "Monty Capuletti  is a hard-living, heavy-drinking, pot-smoking, gambling family man who makes his living as a baby photographer. He loves his wife Rose but has a very tense relationship with his wealthy, snobbish mother-in-law, Mrs. Monahan, who runs a successful department store chain and hates the way Monty acts and lives. .",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:9916623",
+      "metadata": {
+        "release_date": "1931-10-23",
+        "token_count": 39,
+        "release_year": 1931,
+        "title": "The Spell of the Circus",
+        "source": "CMU Movie Summary Corpus",
+        "is_romantic_comedy": false,
+        "movie_id": "9916623",
+        "genres": "{\"/m/02kdv5l\": \"Action\", \"/m/03k9fj\": \"Adventure\", \"/m/01g6gs\": \"Black-and-white\"}"
+      },
+      "synopsis": "Butte Morgan plans to take over the circus my marrying Maria Wallace. She, however, is interested only in the trick rider Jack Grant. {{Expand section}}",
+      "method": "already_short"
+    },
+    {
+      "id": "cmu:5425205",
+      "metadata": {
+        "release_date": "2007-09-08",
+        "movie_id": "5425205",
+        "is_romantic_comedy": false,
+        "genres": "{\"/m/01jfsb\": \"Thriller\", \"/m/02wtdps\": \"Crime Thriller\", \"/m/0lsxr\": \"Crime Fiction\", \"/m/07s9rl0\": \"Drama\", \"/m/02n4kr\": \"Mystery\"}",
+        "title": "Eastern Promises",
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 711,
+        "release_year": 2007
+      },
+      "synopsis": "Anna Khitrova , a British-Russian midwife at a London hospital, finds a Russian-language diary on the body of Tatiana, a 14-year-old girl who dies in childbirth. She also finds a card for the Trans-Siberian restaurant, which is owned by Semyon , an old vor in the Russian Mafia. Anna thus sets out to track down the girl's family so that she can find a home for the baby girl, having meetings with Semyon who she initially regards as friendly. Anna's mother Helen  does not discourage her, but Anna's Ukrainian uncle and self-described former KGB officer, Stepan , whom Anna asks for help with the translation of the diary, urges caution.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:27972540",
+      "metadata": {
+        "token_count": 225,
+        "is_romantic_comedy": false,
+        "release_year": 0,
+        "movie_id": "27972540",
+        "release_date": "",
+        "source": "CMU Movie Summary Corpus",
+        "genres": "{\"/m/0lsxr\": \"Crime Fiction\", \"/m/01jfsb\": \"Thriller\", \"/m/07s9rl0\": \"Drama\"}",
+        "title": "Gurushetram - 24 Hours of Anger"
+      },
+      "synopsis": "Set in contemporary Singapore, Gurushetram - 24 Hours of Anger, is a sinuously provocative, edge-of-your-seat thriller about Prakash who is brought up in a particular segment of the working-class Indian society lined with the wreckage of broken families and dreams. Prakash, a 17 year old teenager, losing his family, seeks shelter with his uncle Vinod, the head of a drug ring, with his mentally challenged younger brother. The two teenagers emerge as pivotal accomplices in Vinod’s clandestine drug operations. Unbeknownst to Vinod, an adamant narcotics police superintendent is hot on their heels after receiving a string of tips offs from an anonymous informant.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:11823946",
+      "metadata": {
+        "title": "Twelfth Night: Or What You Will",
+        "token_count": 567,
+        "release_year": 1996,
+        "movie_id": "11823946",
+        "source": "CMU Movie Summary Corpus",
+        "release_date": "1996-10-25",
+        "is_romantic_comedy": true,
+        "genres": "{\"/m/06cvj\": \"Romantic comedy\", \"/m/02l7c8\": \"Romance Film\", \"/m/07s9rl0\": \"Drama\", \"/m/01z4y\": \"Comedy\", \"/m/060__y\": \"Film adaptation\"}"
+      },
+      "synopsis": "Viola  and Sebastian  are young twins and entertainers who use their likeness to tease their audiences. During a journey by sea, they are caught in a storm, shipwrecked and separated. Viola and other survivors end up on the shore of Illyria. A devastated Viola believes her brother dead.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:36566804",
+      "metadata": {
+        "source": "CMU Movie Summary Corpus",
+        "movie_id": "36566804",
+        "token_count": 62,
+        "release_year": 2012,
+        "release_date": "2012-08",
+        "genres": "{\"/m/07s9rl0\": \"Drama\"}",
+        "is_romantic_comedy": false,
+        "title": "Pietà"
+      },
+      "synopsis": "Kang-do is a heartless man who has no living family members and whose job is to threaten debtors to repay his clients. One day he receives a visit from a strange, middle-aged woman claiming she is his long-lost mother.{{cite web}}",
+      "method": "already_short"
+    },
+    {
+      "id": "cmu:3389457",
+      "metadata": {
+        "source": "CMU Movie Summary Corpus",
+        "is_romantic_comedy": false,
+        "token_count": 35,
+        "genres": "{\"/m/01jfsb\": \"Thriller\", \"/m/02wtdps\": \"Crime Thriller\", \"/m/02n4kr\": \"Mystery\", \"/m/09blyk\": \"Psychological thriller\", \"/m/0c3351\": \"Suspense\"}",
+        "release_year": 1998,
+        "release_date": "1998",
+        "title": "Postmortem",
+        "movie_id": "3389457"
+      },
+      "synopsis": "James McGregor receives a fax of a stranger's obituary. The next day, he is arrested and charged with the stranger's murder.",
+      "method": "already_short"
+    },
+    {
+      "id": "cmu:16179846",
+      "metadata": {
+        "release_year": 1986,
+        "token_count": 317,
+        "source": "CMU Movie Summary Corpus",
+        "movie_id": "16179846",
+        "title": "Sadhanai",
+        "release_date": "1986-01-10",
+        "genres": "{\"/m/07s9rl0\": \"Drama\"}",
+        "is_romantic_comedy": false
+      },
+      "synopsis": "Sivaji is a director whose dream project is to make the love saga of Salim-Anarkali. After a long search for an apt girl to fit into the role of Anarkali, he finds it in a beggar girl . He starts the movie with Nalini as Anarkali. K.R.Vijaya, wife of Sivaji starts suspecting Sivaji-Nalini relationship and this results in a mess inside their family.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:34501845",
+      "metadata": {
+        "release_year": 2012,
+        "is_romantic_comedy": false,
+        "token_count": 266,
+        "movie_id": "34501845",
+        "release_date": "2012-05-18",
+        "title": "Luv Shuv Tey Chicken Khurana",
+        "source": "CMU Movie Summary Corpus",
+        "genres": "{\"/m/05p553\": \"Comedy film\"}"
+      },
+      "synopsis": "Omi Khurana’s London dream has just ended. On the run from a dangerous UK gangster who he owes money to, Omi returns to his native village in Punjab, pretending to be a well-heeled London lawyer. Much has changed since Omi ran away from home a decade back after stealing money from his doting grandfather, Darji. The old man has since become senile and most importantly, forgotten the secret recipe of “Chicken Khurana” a dish that made the Khurana dhaba  famous across Punjab.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:25958067",
+      "metadata": {
+        "title": "Break Ke Baad",
+        "genres": "{\"/m/03q4nz\": \"World cinema\", \"/m/04t36\": \"Musical\", \"/m/07s9rl0\": \"Drama\", \"/m/01z4y\": \"Comedy\", \"/m/068d7h\": \"Romantic drama\", \"/m/02l7c8\": \"Romance Film\", \"/m/01chg\": \"Bollywood\"}",
+        "movie_id": "25958067",
+        "release_date": "2010-11-25",
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 559,
+        "is_romantic_comedy": false,
+        "release_year": 2010
+      },
+      "synopsis": "Abhay Gulati ([[Imran Khan  and Aaliya Khan  have been friends since childhood. Aaliya has always loved acting, since her mother is an actress. Her father left her and her mother. Abhay likes cooking but his father wants him to take care of his business.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:9963622",
+      "metadata": {
+        "is_romantic_comedy": false,
+        "genres": "{\"/m/01jfsb\": \"Thriller\", \"/m/0hj3mt0\": \"Alien Film\", \"/m/06n90\": \"Science Fiction\", \"/m/02kdv5l\": \"Action\"}",
+        "movie_id": "9963622",
+        "source": "CMU Movie Summary Corpus",
+        "release_year": 0,
+        "token_count": 478,
+        "title": "I Come in Peace",
+        "release_date": ""
+      },
+      "synopsis": "Houston cop Jack Caine  does not let police procedure prevent him pursuing his mission to wipe out the White Boys, a gang of white collar drug dealers who killed his partner while Caine was stopping a convenience store robbery. The White boys disguise their narcotics trafficking behind rows of expensive luxury sports cars, executive level jobs, and flashy designer suits. Led by the vicious but urbane Victor Manning, the White Boys operate above accusation but not suspicion. Law enforcement knows they are dirty, but they cannot prove it.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:19332675",
+      "metadata": {
+        "genres": "{\"/m/060__y\": \"Film adaptation\", \"/m/07s9rl0\": \"Drama\", \"/m/015w9s\": \"Television movie\"}",
+        "release_date": "2001",
+        "release_year": 2001,
+        "title": "Othello",
+        "movie_id": "19332675",
+        "token_count": 769,
+        "source": "CMU Movie Summary Corpus",
+        "is_romantic_comedy": false
+      },
+      "synopsis": "The film is narrated by Ben Jago, a corrupt police detective who is prepared to manipulate those around him to get what he wants, even the people he loves. After the Commissioner of London's Metropolitan Police Sinclair Carver is caught using racist language he is forced to resign. The Home Secretary and Prime Minister choose John Othello, a black policeman and Jago's best friend, to be the next Commissioner as a publicity stunt after a reporter praises him for ending a riot. Jago, Carver's second-in-command, feels that Othello stole his chance to become Commissioner himself, as he had been the favourite for the job.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:25223887",
+      "metadata": {
+        "title": "StreetDance 3D",
+        "token_count": 461,
+        "release_year": 2010,
+        "movie_id": "25223887",
+        "source": "CMU Movie Summary Corpus",
+        "release_date": "2010-05-19",
+        "is_romantic_comedy": false,
+        "genres": "{\"/m/07s9rl0\": \"Drama\"}"
+      },
+      "synopsis": "In inner city London, a street dance crew is on the verge of breaking up after its leader, Jay , leaves the group unexpectedly. The group loses the use of their rehearsal space, forcing them to try to raise money or practice in other locations. Eventually they secure a space in a ballet school, on the condition that they include five ballet dancers in their routine. At first, they struggle to get along, but they all become friends in the end.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:4400405",
+      "metadata": {
+        "genres": "{\"/m/0253g1\": \"Epic Western\", \"/m/06l3bl\": \"Epic\", \"/m/03btsm8\": \"Action/Adventure\", \"/m/0hfjk\": \"Western\", \"/m/07s9rl0\": \"Drama\", \"/m/02kdv5l\": \"Action\"}",
+        "release_year": 1939,
+        "release_date": "1939",
+        "is_romantic_comedy": false,
+        "token_count": 110,
+        "title": "Union Pacific",
+        "source": "CMU Movie Summary Corpus",
+        "movie_id": "4400405"
+      },
+      "synopsis": "The 1862 Pacific Railroad Act signed by President Lincoln authorizes pushing the Union Pacific Railroad westward across the wilderness toward California, but financial opportunist Asa Barrows hopes to profit from obstructing it. Chief troubleshooter Jeff Butler has his hands full fighting Barrows' agent, gambler Sid Campeau. Campeau's partner Dick Allen is Jeff's war buddy and rival suitor for engineer's daughter Molly Monahan.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:6902699",
+      "metadata": {
+        "release_year": 1981,
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 557,
+        "genres": "{\"/m/068d7h\": \"Romantic drama\", \"/m/04t36\": \"Musical\", \"/m/07s9rl0\": \"Drama\", \"/m/04xvlr\": \"Period piece\", \"/m/02l7c8\": \"Romance Film\"}",
+        "movie_id": "6902699",
+        "is_romantic_comedy": false,
+        "release_date": "1981",
+        "title": "Pennies from Heaven"
+      },
+      "synopsis": "In 1934, Chicago sheet-music salesman Arthur Parker  is having a hard time, both in his business and at home with his wife Joan . His business is failing and Joan is not amorous enough for Arthur and refuses to give him the money she inherited from her father to start his own business. Arthur's dream is to live in a world that is like the songs he tries to sell. He is refused a bank loan, although he fantasizes that he gets it to a song and dance routine of \"Yes!",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:5925279",
+      "metadata": {
+        "token_count": 591,
+        "source": "CMU Movie Summary Corpus",
+        "release_year": 1921,
+        "release_date": "1921",
+        "genres": "{\"/m/06ppq\": \"Silent film\", \"/m/01lrrt\": \"Melodrama\", \"/m/0219x_\": \"Indie\", \"/m/01g6gs\": \"Black-and-white\", \"/m/02hmvc\": \"Short Film\", \"/m/04xvlr\": \"Period piece\", \"/m/07s9rl0\": \"Drama\"}",
+        "is_romantic_comedy": false,
+        "movie_id": "5925279",
+        "title": "Orphans Of The Storm"
+      },
+      "synopsis": "Just before the French Revolution, Henriette takes her close adopted sister, Louise, to Paris in the hope of finding a cure for her blindness. She promises Louise that she will not marry until she could see to approve her husband. Lustful aristocrat de Praille  meets the two outside Paris. Taken by the virginal Henriette's beauty, he has her abducted and brought to his estate where a lavish party is being held, leaving Louise helpless in the big city.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:7463316",
+      "metadata": {
+        "source": "CMU Movie Summary Corpus",
+        "movie_id": "7463316",
+        "title": "Thrashin'",
+        "is_romantic_comedy": false,
+        "genres": "{\"/m/02kdv5l\": \"Action\", \"/m/07s9rl0\": \"Drama\"}",
+        "release_year": 1986,
+        "release_date": "1986-08-22",
+        "token_count": 796
+      },
+      "synopsis": "Corey Webster  is an amateur skateboarder from out of town staying in Los Angeles with friends in hopes of competing and winning a downhill competition which he has been training for. During his stay in LA he falls in love with a beautiful blonde girl named Chrissy who just happens to be the younger sister of Hook, the leader of \"The Daggers,\" a tough punk rock skateboard gang in the Los Angeles/ Venice Beach areas. Chrissy is not a Dagger herself but has come from her home in Indiana to stay with her brother in L.A. for the summer.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:11293276",
+      "metadata": {
+        "release_date": "2007-04-18",
+        "token_count": 272,
+        "title": "Madurai Veeran",
+        "release_year": 2007,
+        "source": "CMU Movie Summary Corpus",
+        "is_romantic_comedy": false,
+        "genres": "{\"/m/02l7c8\": \"Romance Film\", \"/m/02kdv5l\": \"Action\"}",
+        "movie_id": "11293276"
+      },
+      "synopsis": "Shiva  is the only son of a rich businessman . He grows up surrounded by money and he is not cared for by his parents, due to his mother dying when he was a young boy and his father is business-minded and only cares about his money. Shiva and his friends are a playful bunch, they do not study and they mainly do lots of sport. Priya , who also goes to the college  that Shiva goes to, is the daughter of a cow herder and a gangster Mayandi .",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:35586499",
+      "metadata": {
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 436,
+        "title": "Nasibo",
+        "genres": "{}",
+        "release_year": 1993,
+        "is_romantic_comedy": false,
+        "release_date": "1993",
+        "movie_id": "35586499"
+      },
+      "synopsis": "Nasibo is the sister of Naajar Singh, living with her widowed mother, Santi and sister-in-law, Veero. Gurmeet Singh is in one-sided love with Nasibo. Ago, taking advantage of a melas crowd, Diala Singh of Danpura killed Naajar's father, Bhan Singh and was jailed for that. Naajar is very excited to take revenge from Diala Singh.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:9294",
+      "metadata": {
+        "release_date": "1981-10-15",
+        "movie_id": "9294",
+        "token_count": 843,
+        "genres": "{\"/m/01q03\": \"Cult\", \"/m/0qdzd\": \"B-movie\", \"/m/03npn\": \"Horror\", \"/m/0hj3n5l\": \"Haunted House Film\", \"/m/0219x_\": \"Indie\"}",
+        "title": "The Evil Dead",
+        "source": "CMU Movie Summary Corpus",
+        "release_year": 1981,
+        "is_romantic_comedy": false
+      },
+      "synopsis": "Five Michigan State students venture into the hills of Tennessee to spend their Spring Break vacation in an isolated cabin. There, they find the \"Naturan Demanto\", a Sumerian variation of the Book of the Dead. They also find a tape recorder that plays demonic incantations from the book, unleashing evil demons. The demons proceed to isolate and kill off the students, beginning with Cheryl, who hears the voices of the demons and goes outside to investigate.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:7443928",
+      "metadata": {
+        "genres": "{\"/m/07s9rl0\": \"Drama\", \"/m/015w9s\": \"Television movie\"}",
+        "is_romantic_comedy": false,
+        "token_count": 286,
+        "release_year": 1992,
+        "movie_id": "7443928",
+        "source": "CMU Movie Summary Corpus",
+        "title": "Doing Time on Maple Drive",
+        "release_date": "1992"
+      },
+      "synopsis": "Doing Time on Maple Drive centers on the Carter family. Father Phil  is a successful local restaurateur, married for many years to Lisa . They have three grown children, Karen , Tim  and Matt . Karen is married to Tom , Tim works in his father's restaurant and Matt is a college student.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:18549958",
+      "metadata": {
+        "title": "Love, Mary",
+        "movie_id": "18549958",
+        "genres": "{\"/m/07s9rl0\": \"Drama\", \"/m/0hj3mws\": \"Biopic [feature]\"}",
+        "token_count": 146,
+        "source": "CMU Movie Summary Corpus",
+        "release_date": "1985-10-08",
+        "release_year": 1985,
+        "is_romantic_comedy": false
+      },
+      "synopsis": "Mary was a lonely and poor child, from a family of poor farm workers in Portland, Oregon. She was always in trouble with juvenile authorities partly because she hated to go to school. After a number of breaks from juvenile authorities, Mary's good luck ran out. She and another troubled male teen got caught while they were joy-riding with a stolen car that they crashed.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:1520023",
+      "metadata": {
+        "release_year": 1998,
+        "source": "CMU Movie Summary Corpus",
+        "genres": "{\"/m/03npn\": \"Horror\", \"/m/03q4nz\": \"World cinema\", \"/m/0hcr\": \"Animation\", \"/m/0jxy\": \"Anime\", \"/m/01hmnh\": \"Fantasy\", \"/m/0gw5n2f\": \"Japanese Movies\"}",
+        "release_date": "1998",
+        "movie_id": "1520023",
+        "is_romantic_comedy": false,
+        "title": "Ninja Resurrection",
+        "token_count": 3883
+      },
+      "synopsis": "Ninja Resurrection takes place in the Tokugawa era, at a time when Christians in Japan were being persecuted. The leader of the Shimabara Rebellion, Amakusa Shirō, hoped to resist the government forces attacking Christians like him but is assassinated. Soon after, Amakusa's restless spirit returns to avenge his fallen comrades and is up to Yagyū Jūbei Mitsuyoshi to put a stop to the demonic onslaught. Jubei's Revenge begins a narration of the timepiece explaining the era, the war between toyotomi and tokugawa, the events that led up to the Shimabara rebellion, and a dark satanic prophecy about Shiro.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:14840073",
+      "metadata": {
+        "movie_id": "14840073",
+        "source": "CMU Movie Summary Corpus",
+        "is_romantic_comedy": false,
+        "title": "Kiss Kiss",
+        "release_date": "2001-11-07",
+        "token_count": 102,
+        "genres": "{\"/m/01jfsb\": \"Thriller\", \"/m/01z4y\": \"Comedy\"}",
+        "release_year": 2001
+      },
+      "synopsis": "Felix is a hit-man who wants out of the business. He takes up a job to look after a reclusive man named Bubba who is like a giant kid, he does not understand people and does not know much, never having seen the outside world before. But Felix has bigger problems. He wants to patch up his relationship with his ex-girlfriend, and he's being targeted by his old colleagues who are not letting him get away from his past so easily.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:1838882",
+      "metadata": {
+        "genres": "{\"/m/08322\": \"Wuxia\", \"/m/0hj3n2k\": \"Fantasy Adventure\", \"/m/03k9fj\": \"Adventure\", \"/m/03q4nz\": \"World cinema\", \"/m/04pbhw\": \"Superhero movie\", \"/m/0gw5qqq\": \"Chinese Movies\", \"/m/03btsm8\": \"Action/Adventure\", \"/m/04t2t\": \"Martial Arts Film\", \"/m/01hmnh\": \"Fantasy\", \"/m/03rzvv\": \"Romantic fantasy\"}",
+        "movie_id": "1838882",
+        "is_romantic_comedy": false,
+        "title": "The Storm Riders",
+        "token_count": 406,
+        "source": "CMU Movie Summary Corpus",
+        "release_date": "1998",
+        "release_year": 1998
+      },
+      "synopsis": "The evil Lord Conqueror, head of Conqueror's Clan, is given a prophecy by Mud Buddha. It is said that if Conqueror finds two young children by the name of Wind and Cloud he will have good fortune. Mud Buddha tells Conqueror to look for him 10 years later so that he can tell the rest of Conqueror's fortune. Conqueror issues an order that every boy with a birth chart matching Wind's or Cloud's must become a disciple of the Conqueror's Clan.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:28177482",
+      "metadata": {
+        "movie_id": "28177482",
+        "source": "CMU Movie Summary Corpus",
+        "release_date": "1948-08-09",
+        "genres": "{\"/m/0lsxr\": \"Crime Fiction\", \"/m/07s9rl0\": \"Drama\"}",
+        "title": "My Brother's Keeper",
+        "is_romantic_comedy": false,
+        "token_count": 335,
+        "release_year": 1948
+      },
+      "synopsis": "Handcuffed together, George Martin ([[Jack Warner  and Willie Stannard ([[George Cole  are two newly-convicted criminals being transported to prison. Martin is a hardened, cynical career criminal, while Stannard is a naïve, rather dull-witted youth who has never previously been in trouble with the law, maintains his innocence of the rape for which he has been convicted and is terrified by the prospect of prison. During the journey the pair manage to escape. Martin steals an army officer's uniform and passes Stannard off as a deserter in his charge, being returned to face a military tribunal.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:6777222",
+      "metadata": {
+        "token_count": 1298,
+        "is_romantic_comedy": false,
+        "movie_id": "6777222",
+        "source": "CMU Movie Summary Corpus",
+        "title": "Rack, Shack, and Benny",
+        "release_year": 1995,
+        "genres": "{\"/m/02hmvc\": \"Short Film\", \"/m/04t36\": \"Musical\", \"/m/0bj8m2\": \"Children's\", \"/m/0hcr\": \"Animation\"}",
+        "release_date": "1995"
+      },
+      "synopsis": "The episode starts with Bob the Tomato with Larry the Cucumber, who is wearing an oven mitten on his head. When asked why, Larry says that it is because he saw it on the cover of \"Veggie Beat\" magazine and that everyone is doing it. Unable to see, however, he almost falls into a toaster and he ultimately crashes into the sink. Bob reads a letter from Dexter Wilmington from Tuscaloosa, Alabama about how he has peer pressure problems and is being tempted by his friend \"Billy\" to watch a show that Dexter isn't supposed to watch yet.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:24448645",
+      "metadata": {
+        "movie_id": "24448645",
+        "release_year": 2008,
+        "release_date": "2008-11",
+        "genres": "{\"/m/03npn\": \"Horror\"}",
+        "source": "CMU Movie Summary Corpus",
+        "is_romantic_comedy": false,
+        "title": "Forest of the Damned 2",
+        "token_count": 99
+      },
+      "synopsis": "Despite Lucy's reservations, she agrees to her husband’s request to attend a wild party of lust and sexual exploration on a remote island. Their passion soon turns to terror when they discover that one of the group has disappeared. Some start to believe there is something evil lurking in the forest while others begin to suspect each other. Lucy's biggest fear was that the weekend could ruin her marriage, she didn't realize it could cost her her life too.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:657446",
+      "metadata": {
+        "title": "Liar Liar",
+        "is_romantic_comedy": false,
+        "token_count": 800,
+        "genres": "{\"/m/09q17\": \"Slapstick\", \"/m/0hj3n2s\": \"Fantasy Comedy\", \"/m/01hmnh\": \"Fantasy\", \"/m/01z4y\": \"Comedy\", \"/m/0hj3n0k\": \"Domestic Comedy\"}",
+        "release_date": "1997-03-21",
+        "source": "CMU Movie Summary Corpus",
+        "movie_id": "657446",
+        "release_year": 1997
+      },
+      "synopsis": "In Los Angeles, California Fletcher Reede  is a career-focused lawyer and divorced father. He loves spending time with his young son Max ([[Justin Cooper ; they often play a game where Fletcher makes his hand into \"the Claw\" and pretends to chase Max with it. But Fletcher has a habit of giving precedence to his job, breaking promises to Max and his ex-wife Audrey , and then lying about the reasons. Fletcher's compulsive lying has also built him a reputation as one of the best defense lawyers in the state of California as he is climbing the ladder in the firm for which he works.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:32558509",
+      "metadata": {
+        "is_romantic_comedy": false,
+        "release_date": "2011-08-10",
+        "source": "CMU Movie Summary Corpus",
+        "title": "Blind",
+        "genres": "{\"/m/01jfsb\": \"Thriller\"}",
+        "release_year": 2011,
+        "movie_id": "32558509",
+        "token_count": 1510
+      },
+      "synopsis": "A missing person case involving a female university student and the victim in a hit and run case appears to be related. Detectives look for a witness. Into the police office walks Min Soo-Ah . She used to be a promising cadet at the police academy, but after a horrific car accident which killed her surrogate brother, Soo-Ah's police career ended.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:11388102",
+      "metadata": {
+        "genres": "{\"/m/07s9rl0\": \"Drama\", \"/m/06ppq\": \"Silent film\", \"/m/01t_vv\": \"Comedy-drama\", \"/m/01g6gs\": \"Black-and-white\"}",
+        "release_date": "1925-11-09",
+        "movie_id": "11388102",
+        "token_count": 175,
+        "release_year": 1925,
+        "is_romantic_comedy": false,
+        "source": "CMU Movie Summary Corpus",
+        "title": "Old Clothes"
+      },
+      "synopsis": "Tim Kelly  and Max Ginsberg  have struck it rich by investing in copper stock. But when the stock takes a dive, they are compelled to go back into their former profession — junk dealers. They take in the destitute Mary Riley  as a boarder and she hits it off so well with them that she winds up becoming a partner in their rag & junk company. Mary falls in love with a man named Nathan Burke , the son of wealthy parents.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:473286",
+      "metadata": {
+        "release_date": "2003-08-27",
+        "genres": "{\"/m/06cvj\": \"Romantic comedy\", \"/m/02l7c8\": \"Romance Film\", \"/m/01z4y\": \"Comedy\"}",
+        "source": "CMU Movie Summary Corpus",
+        "is_romantic_comedy": true,
+        "movie_id": "473286",
+        "title": "Anything Else",
+        "release_year": 2003,
+        "token_count": 85
+      },
+      "synopsis": "Jerry Falk  is an aspiring writer living in New York City who falls in love at first sight with Amanda  and begins having an affair and eventually tells his girlfriend about it so that she will dump him because Falk cannot end relationships. Seeking advice, Jerry turns to an aging struggling artist  who acts as his oracle — and that includes trying to help sort out Jerry’s romantic life.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:21447744",
+      "metadata": {
+        "source": "CMU Movie Summary Corpus",
+        "token_count": 355,
+        "title": "Bloody Spear at Mount Fuji",
+        "is_romantic_comedy": false,
+        "genres": "{\"/m/0gw5n2f\": \"Japanese Movies\", \"/m/01g6gs\": \"Black-and-white\"}",
+        "release_year": 0,
+        "movie_id": "21447744",
+        "release_date": ""
+      },
+      "synopsis": "The samurai Sakawa Kojūrō is on the road to Edo with his two servants Genta and Genpachi. Kojūrō is a kindly master, but his character totally changes when he consumes alcohol. On the road, they encounter many different people: a traveling singer with her child, a father taking his daughter Otane to be sold into prostitution, a pilgrim, a policeman searching for a notorious thief, and Tōzaburō, the suspicious man the officer has his eyes on. Genpachi, the spear carrier, is also followed by an orphaned boy named Jirō who wants to be a samurai.",
+      "method": "llm_selected"
+    },
+    {
+      "id": "cmu:3067907",
+      "metadata": {
+        "release_date": "2005-03-10",
+        "is_romantic_comedy": false,
+        "token_count": 76,
+        "release_year": 2005,
+        "movie_id": "3067907",
+        "source": "CMU Movie Summary Corpus",
+        "genres": "{\"/m/01z4y\": \"Comedy\"}",
+        "title": "Mapado"
+      },
+      "synopsis": "A gangster and a corrupt police officer travel to the tiny remote island of Mapado to hunt down a young woman who has run off with a winning lottery ticket. Upon arriving, they discover that no one lives there except for five old women who have not once seen a man for 20 years. Both men soon experience a nightmare of hard labour and harassment.",
+      "method": "llm_selected"
+    }
+  ],
+  "diagnostic_hits_at_3": {
+    "full_plot": 6,
+    "synopsis": 6
+  }
+}

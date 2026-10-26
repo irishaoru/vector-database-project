@@ -1,0 +1,141 @@
+{
+  "movie_count": 500,
+  "model": "nomic-ai/nomic-embed-text-v1.5",
+  "revision": "e9b6763023c676ca8431644204f50c2b100d9aab",
+  "metadata_filters_used": false,
+  "queries": [
+    {
+      "query": "a dystopian movie",
+      "jina": {
+        "top_3": [
+          "The Good Life",
+          "Novocaine",
+          "Pieces"
+        ],
+        "hunger_games_rank": 224
+      },
+      "nomic": {
+        "top_3": [
+          "Always Outnumbered",
+          "Farewell to the Duman River",
+          "A Slumdog Millionaire Goes Dancing"
+        ],
+        "hunger_games_rank": 126
+      }
+    },
+    {
+      "query": "a creepy dystopian movie",
+      "jina": {
+        "top_3": [
+          "Novocaine",
+          "Pieces",
+          "The Good Life"
+        ],
+        "hunger_games_rank": 369
+      },
+      "nomic": {
+        "top_3": [
+          "Fantastic Planet",
+          "Dark Water",
+          "Maayavi"
+        ],
+        "hunger_games_rank": 150
+      }
+    },
+    {
+      "query": "an action filled movie",
+      "jina": {
+        "top_3": [
+          "The Good Life",
+          "Wait Until Spring, Bandini",
+          "The Big Premiere"
+        ],
+        "hunger_games_rank": 320
+      },
+      "nomic": {
+        "top_3": [
+          "The Naked Gun: From the Files of Police Squad!",
+          "The Emperor Jones",
+          "La Cit\u00e9 de la peur"
+        ],
+        "hunger_games_rank": 115
+      }
+    },
+    {
+      "query": "a light hearted romantic comedy",
+      "jina": {
+        "top_3": [
+          "Phir Kabhi",
+          "The Surprise of a Knight",
+          "Ithu Nammude Katha"
+        ],
+        "hunger_games_rank": 287
+      },
+      "nomic": {
+        "top_3": [
+          "How to Eat Like a Child",
+          "Easy A",
+          "The Incredibly True Adventure of Two Girls in Love"
+        ],
+        "hunger_games_rank": 432
+      }
+    },
+    {
+      "query": "Teenagers are forced by a totalitarian government to fight to the death for public entertainment.",
+      "jina": {
+        "top_3": [
+          "A la salida nos vemos",
+          "S.F.W.",
+          "Space Jam"
+        ],
+        "hunger_games_rank": 26
+      },
+      "nomic": {
+        "top_3": [
+          "A la salida nos vemos",
+          "Hurricane Streets",
+          "A Big Bang Love: Juvenile"
+        ],
+        "hunger_games_rank": 17
+      }
+    },
+    {
+      "query": "An anthology connecting unrelated lives through the same firearm.",
+      "jina": {
+        "top_3": [
+          "The Gun",
+          "Two Evil Eyes",
+          "A Big Bang Love: Juvenile"
+        ],
+        "hunger_games_rank": 97
+      },
+      "nomic": {
+        "top_3": [
+          "The Gun",
+          "Meet John Doe",
+          "Sophie's Choice"
+        ],
+        "hunger_games_rank": 131
+      }
+    },
+    {
+      "query": "A housebound woman fears she imagined a homicide because nobody can verify her account.",
+      "jina": {
+        "top_3": [
+          "Adultery Diary: One More Time While I'm Still Wet",
+          "Frozen with Fear",
+          "The Secret Cinema"
+        ],
+        "hunger_games_rank": 203
+      },
+      "nomic": {
+        "top_3": [
+          "Frozen with Fear",
+          "Forest of the Damned 2",
+          "Postmortem"
+        ],
+        "hunger_games_rank": 122
+      }
+    }
+  ]
+}

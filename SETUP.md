@@ -14,9 +14,12 @@ The loader reads the archive directly, joins titles and plots by Wikipedia movie
 ID, and embeds each full plot as one item. Titles, release dates, genres, movie
 IDs, and token counts are saved as metadata.
 
-The local [Jina v2 small English embedding model](https://huggingface.co/jinaai/jina-embeddings-v2-small-en)
-downloads on first use (about 130 MB). It requires no API key. We use the official
-ONNX export with mean pooling, normalized vectors, and cosine distance.
+The local [Nomic Embed Text v1.5 model](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5)
+downloads its tokenizer and official quantized ONNX export on first use (roughly
+140 MB). It requires no API key or running Ollama server for embedding/search.
+We use mean pooling, layer/L2 normalization, 768-dimensional vectors, and cosine
+distance. Stored documents use the required `search_document:` prefix; queries
+use `search_query:`. These task prefixes are added internally, not typed by users.
 The model stays in `.cache/` and the persistent database stays in
 `chroma_store/`, both relative to this project. Both are ignored by Git.
 The archive and any files in `data/` are also ignored.
@@ -68,7 +71,7 @@ The one-shot `search_movies.py` command only searches; use `app.py` for saving.
 
 ### Short summaries and trailer links
 
-Search still embeds and retrieves **full plots** with Jina/Chroma. After retrieval,
+Search still embeds and retrieves **full plots** with Nomic/Chroma. After retrieval,
 only the top three plots are sent to a separate local language model to create short
 extractive summaries. The model selects up to three original plot sentences; the app
 validates their indices and assembles the selected text in source order. This avoids
@@ -165,10 +168,60 @@ Plots are no longer split into passages. The loader checks all selected plots
 before writing; if one exceeds the limit, it reports the title and stops instead
 of silently cutting off text. Search queries are checked too.
 
-The new collection is `movie_full_plots_jina_v2`. The previous MiniLM passage
-collection is retained separately, but search now uses only the Jina collection.
-Different models' embeddings must not be mixed. Model files are pinned to a
-specific revision in `movie_embeddings.py`; loading and searching share that code.
+The active collection is `movie_full_plots_nomic_v15`. The previous Jina full-plot
+collection and MiniLM passage collection remain separate; the app only searches
+the active Nomic collection. Different models' embeddings must not be mixed.
+The Nomic model revision is pinned in `nomic_embeddings.py`; `movie_embeddings.py`
+exports the active implementation used for loading, adding, and searching.
+The input limit includes task-prefix and special tokens.
+
+To copy an existing Jina collection, including user-added movies, without changing
+its IDs, full plots, or the JSON watchlist:
+
+```sh
+python rebuild_embeddings.py
+```
+
+## Embedding comparison and known limitations
+
+To run a separate controlled pilot of full plots versus short LLM-selected
+synopses, start the local summary server, then run:
+
+```sh
+python compare_plot_summaries.py --limit 60 --seed 26
+```
+
+This keeps the embedding model (Nomic), query set, and eligible movies identical.
+The sample contains diagnostic anchor titles plus seeded random distractors.
+Short plots are retained as-is; longer plots are summarized by selecting source
+sentences that describe the premise, setting, conflict, and themes. Invalid LLM
+answers are excluded from both conditions, not silently replaced with excerpts.
+Two separate experimental Chroma collections are created. Original full plots
+remain available as returned documents even in the summary-vector condition.
+The live app, original movie collection, and watchlist are not changed.
+
+Results, generated synopses, exclusions, and limitations are recorded in
+`summary_embedding_comparison.json`. The reported hit-at-three measure only checks
+whether a preselected diagnostic title appears; it does not judge all returned
+movies. A pilot result does not establish quality across the entire dataset or
+every kind of user request. Summary caches live under `.cache/retrieval-summaries/`.
+
+```sh
+python compare_embeddings.py
+```
+
+This compares the original Jina and active Nomic collections on seven identical
+queries with no metadata filters. It requires both collections to contain identical
+IDs and full plots and records results in `embedding_comparison.json`. A fresh
+installation can load Nomic directly; the original Jina collection is only needed
+for reproducing the comparison, not for normal use.
+
+Nomic improves some examples, including the creepy-dystopian query and the two
+semantic proof examples, but broad requests like “a dystopian movie” and “an action
+filled movie” still produce weak matches. The switch is not a complete solution to
+recommendation quality. BGE-M3 through Ollama was also tried but rejected a long
+plot despite its advertised context; Qwen3 Embedding was checked on a small sample
+and was not selected. Neither of those experimental models is used by this app.
 
 ## Recheck the two semantic examples
 

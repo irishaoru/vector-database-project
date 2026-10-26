@@ -1,7 +1,7 @@
 {
-  "model": "jinaai/jina-embeddings-v2-small-en",
-  "revision": "44e7d1d6caec8c883c2d4b207588504d519788d0",
-  "collection": "movie_full_plots_jina_v2",
+  "model": "nomic-ai/nomic-embed-text-v1.5",
+  "revision": "e9b6763023c676ca8431644204f50c2b100d9aab",
+  "collection": "movie_full_plots_nomic_v15",
   "movie_count": 500,
   "metadata_filters_used": false,
   "top_k": 3,
@@ -20,17 +20,17 @@
         {
           "title": "The Gun",
           "movie_id": "34410222",
-          "distance": 0.13148701190948486
+          "distance": 0.2584306001663208
         },
         {
-          "title": "Two Evil Eyes",
-          "movie_id": "4154028",
-          "distance": 0.19868570566177368
+          "title": "Meet John Doe",
+          "movie_id": "2462689",
+          "distance": 0.3323991894721985
         },
         {
-          "title": "A Big Bang Love: Juvenile",
-          "movie_id": "9013693",
-          "distance": 0.20158445835113525
+          "title": "Sophie's Choice",
+          "movie_id": "4016437",
+          "distance": 0.33292239904403687
         }
       ]
     },
@@ -39,7 +39,7 @@
       "expected_movie_id": "4072739",
       "expected_title": "Frozen with Fear",
       "expected_plot": "Katherine Sullivan, a severe agoraphobic, witnesses the murder of her husband and speaks with the investigating detective. Then both the body and the detective disappear. Katherine hires private investigator Jack Mize to figure out, only Mize isn't so sure Katherine's version of reality is the truth.",
-      "rank": 2,
+      "rank": 1,
       "shared_words": [
         "a",
         "her"
@@ -47,19 +47,19 @@
       "passed": true,
       "results": [
         {
-          "title": "Adultery Diary: One More Time While I'm Still Wet",
-          "movie_id": "23057797",
-          "distance": 0.1888532042503357
-        },
-        {
           "title": "Frozen with Fear",
           "movie_id": "4072739",
-          "distance": 0.2005118727684021
+          "distance": 0.3047563433647156
         },
         {
-          "title": "The Secret Cinema",
-          "movie_id": "25807103",
-          "distance": 0.21437853574752808
+          "title": "Forest of the Damned 2",
+          "movie_id": "24448645",
+          "distance": 0.30650758743286133
+        },
+        {
+          "title": "Postmortem",
+          "movie_id": "3389457",
+          "distance": 0.3288976550102234
         }
       ]
     }

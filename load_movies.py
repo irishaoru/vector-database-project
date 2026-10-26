@@ -13,7 +13,7 @@ from movie_embeddings import MAX_TOKENS, MovieEmbeddingFunction
 
 ROOT = Path(__file__).resolve().parent
 STORE = ROOT / "chroma_store"
-COLLECTION = "movie_full_plots_jina_v2"
+COLLECTION = "movie_full_plots_nomic_v15"
 
 
 def read_movies(archive_path, limit):
@@ -58,7 +58,7 @@ def main():
     movies = read_movies(args.archive, args.limit)
     if not movies:
         parser.error("No movies with plots and metadata found")
-    print(f"Read {len(movies)} movies. Preparing Jina full-plot embeddings...", flush=True)
+    print(f"Read {len(movies)} movies. Preparing Nomic full-plot embeddings...", flush=True)
     embedding = MovieEmbeddingFunction()
 
     documents, ids, metadatas = [], [], []
