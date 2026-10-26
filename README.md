@@ -2,7 +2,7 @@
 
 ### 1. What my app does and why I chose it:
 
-My app is a movie recommender where the user inputs what they want to watch (this could include things like the genre, mood,  or kind of plot) and the app returns the top 3 recommendations based on semantic meanings of the movies embedded in the vector database. The recommendations are condensed into AI generated summaries instead of the full description, making it more user friendly and also comes with a youtube link to the movie's trailer. Finally, users can choose to save any of the movies into their watchlist and also remove any movies they want from the watchlist as well. I chose this concept because it fits the use of a vector database well because you have to infer the meaning of things like "creepy" or "action-packed" and it isn't just a directly lookup. 
+My app is a movie recommender where the user inputs what they want to watch (this could include things like the genre, mood, or kind of plot) and the app returns the top 3 recommendations based on semantic meanings of the movies embedded in the vector database. The recommendations are condensed into AI selected original plot sentences instead of the full description, making it more user friendly and also comes with a youtube link to the movie's trailer. Finally, users can choose to save any of the movies into their watchlist and also remove any movies they want from the watchlist as well. I chose this concept because it fits the use of a vector database well because you have to infer the meaning of things like "creepy" or "action-packed" and it isn't just a directly lookup. 
 
 ### 2. What is stored in the database:
 
