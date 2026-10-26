@@ -110,6 +110,7 @@ AI helped with:
 - helped me test out/compare different embedding models to see if a different one would improve recommendation quality (tested several 
 and they were all about the same)
 - explained the set up to me and helped me install Ollama and download Qwen
+- used it to help me format the README to make it more readable
 
 Citations: Used Codex GPT-6.1 Sol Light. CMU Dataset used: https://www.cs.cmu.edu/~ark/personas/
 
