@@ -35,7 +35,24 @@ def save_to_watchlist(path, match, query):
         "movie_id": metadata["movie_id"], "title": metadata["title"],
         "release_date": metadata.get("release_date", ""),
         "query": query, "plot": match["plot"],
+        **{key: match[key] for key in ("summary", "summary_label", "trailer") if key in match},
     })
+    _write_watchlist(path, entries)
+    return True
+
+
+def remove_from_watchlist(path, movie_id):
+    """Remove only the selected saved entry; leave the movie corpus alone."""
+    path = Path(path)
+    entries = read_watchlist(path)
+    remaining = [entry for entry in entries if entry["movie_id"] != movie_id]
+    if len(remaining) == len(entries):
+        return False
+    _write_watchlist(path, remaining)
+    return True
+
+
+def _write_watchlist(path, entries):
     path.parent.mkdir(parents=True, exist_ok=True)
     # Replace only after writing the complete JSON, protecting previous saves
     # from interruption during a write.
@@ -50,4 +67,3 @@ def save_to_watchlist(path, match, query):
     finally:
         if temporary_path is not None and temporary_path.exists():
             temporary_path.unlink()
-    return True

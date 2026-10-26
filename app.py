@@ -8,7 +8,7 @@ import chromadb
 from load_movies import COLLECTION, STORE
 from movie_embeddings import MAX_TOKENS, MovieEmbeddingFunction
 from search_movies import build_filters, display_matches, search_movies
-from watchlist import read_watchlist, save_to_watchlist
+from watchlist import read_watchlist, remove_from_watchlist, save_to_watchlist
 
 
 def add_movie(collection, embedding, title, plot, year="", genres=""):
@@ -43,7 +43,7 @@ def main():
     try:
         while True:
             print(f"\n--- Movie Finder ({collection.count()} movies) ---")
-            print("1. Search\n2. Add a movie\n3. Quit\n4. View saved watchlist")
+            print("1. Search\n2. Add a movie\n3. Quit\n4. View saved watchlist\n5. Remove a watchlist movie")
             choice = input("Choose an option: ").strip()
             try:
                 if choice == "1":
@@ -87,8 +87,29 @@ def main():
                             year = entry["release_date"][:4] or "date unknown"
                             print(f"{number}. {entry['title']} ({year})")
                             print(f"   Found while searching: {entry['query']}")
+                            if entry.get("summary"):
+                                print(f"   {entry.get('summary_label', 'Summary')}: {entry['summary']}")
+                            if isinstance(entry.get("trailer"), dict) and entry["trailer"].get("url"):
+                                print(f"   {entry['trailer'].get('label', 'Trailer')}: {entry['trailer']['url']}")
+                elif choice == "5":
+                    path = STORE / "watchlist.json"
+                    entries = read_watchlist(path)
+                    if not entries:
+                        print("Your watchlist is empty.")
+                        continue
+                    for number, entry in enumerate(entries, 1):
+                        year = entry["release_date"][:4] or "date unknown"
+                        print(f"{number}. {entry['title']} ({year})")
+                    selection = input("Remove which number? (Enter to cancel): ").strip()
+                    if not selection:
+                        continue
+                    if not selection.isdigit() or not 1 <= int(selection) <= len(entries):
+                        raise ValueError("Enter one of the displayed movie numbers.")
+                    entry = entries[int(selection) - 1]
+                    if remove_from_watchlist(path, entry["movie_id"]):
+                        print(f"Removed {entry['title']} from your watchlist.")
                 else:
-                    print("Choose 1, 2, 3, or 4.")
+                    print("Choose 1, 2, 3, 4, or 5.")
             except (ValueError, OSError) as error:
                 print(f"Could not complete that action: {error}")
     except (EOFError, KeyboardInterrupt):

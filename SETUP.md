@@ -56,10 +56,74 @@ save additional results, then press Enter to return to the menu. Choose
 **4. View saved watchlist** to see your selected movies and the searches that led
 to them. Saving the same movie ID again does not create a duplicate.
 
+Choose **5. Remove a watchlist movie**, then enter its displayed number to remove
+one entry. Press Enter to cancel. Removal is saved immediately and survives
+restarting; it does not delete the movie from the searchable Chroma collection.
+You can search for and save that movie again to get its current summary and link.
+
 The watchlist is saved locally in `chroma_store/watchlist.json`, which is ignored
 by Git. It survives quitting and restarting. Choose **3. Quit**, run `python app.py`
 again, and choose **4** to check. Movie additions remain in Chroma as well.
 The one-shot `search_movies.py` command only searches; use `app.py` for saving.
+
+### Short summaries and trailer links
+
+Search still embeds and retrieves **full plots** with Jina/Chroma. After retrieval,
+only the top three plots are sent to a separate local language model to create short
+extractive summaries. The model selects up to three original plot sentences; the app
+validates their indices and assembles the selected text in source order. This avoids
+invented plot details encountered during tests with freely rewritten summaries.
+Summaries do not replace the stored plots or change ranking.
+
+1. Install [Ollama](https://ollama.com/download) and start it. In a terminal, download
+   the small [Qwen2.5 1.5B model](https://ollama.com/library/qwen2.5:1.5b):
+
+   ```sh
+   ollama pull qwen2.5:1.5b
+   ```
+
+   This model download is about 986 MB; runtime memory is larger. If the service
+   isn't already running, use `ollama serve` in another terminal.
+   On the current development machine, a portable runtime and the model have
+   already been downloaded into the ignored project cache. You can start it with
+   `python start_summary_server.py` in a separate terminal and leave that running.
+   Those downloads are not included in Git; other users should install Ollama.
+2. Copy `.env.example` to `.env`. The defaults use Ollama at
+   `http://127.0.0.1:11434` with `qwen2.5:1.5b`. Change `OLLAMA_MODEL` to use another
+   installed model if you prefer. A small model is lightweight but may make mistakes.
+3. For direct trailer candidates, create a Google Cloud project, enable **YouTube
+   Data API v3**, create an API key, and enter it as `YOUTUBE_API_KEY` in `.env`.
+   Restrict the key to that API. Follow Google's
+   [setup instructions](https://developers.google.com/youtube/v3/getting-started).
+   Never commit `.env` or paste a real key into documentation/chat.
+4. Run `python app.py` or `python search_movies.py` as before.
+
+Each recommendation shows an AI-selected summary and a trailer link. The model is
+instructed to avoid ending spoilers, but its selections can still omit context or
+reveal spoilers, and the source itself may have errors. It does not invent trailer URLs:
+the [YouTube search endpoint](https://developers.google.com/youtube/v3/docs/search/list)
+finds video candidates using title, year, and “official trailer.” Matching video
+titles and channels are displayed; the result is a candidate, not a guarantee of
+the correct film or official ownership.
+
+Without Ollama, the app clearly labels a short **plot excerpt** instead of an AI
+summary. Without a YouTube key, or if the API fails or no candidate matches, it
+shows a **YouTube search link** instead of claiming to have found a trailer.
+Network calls have timeouts, and failures do not prevent searching or saving.
+Ollama receives the full retrieved plot locally; YouTube receives only title/year
+search terms and your API credential. Changing `OLLAMA_URL` changes where plots
+are sent.
+
+Successful summaries are cached by plot content/model/prompt version under
+`.cache/recommendations/`; changing a plot triggers a new summary. Trailer
+candidates expire after 24 hours to limit repeated API calls while refreshing
+links. Google controls API quotas; check your project's console for limits.
+Delete this cache to regenerate summaries. Saved watchlist entries retain the
+displayed summary and trailer link; older entries still work without those fields.
+
+For diagnostics, `python search_movies.py "your request" --full-plots` shows the
+original plots without calling the summary/trailer services. Set
+`MOVIE_DETAILS_MODE=offline` in `.env` to use labeled excerpts/search links.
 
 With the virtual environment activated, run:
 

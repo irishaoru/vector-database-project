@@ -1,6 +1,7 @@
 """Exercise the real terminal add/search/restart flow in an isolated database."""
 
 import subprocess
+import os
 import sys
 import tempfile
 import unittest
@@ -11,7 +12,7 @@ import chromadb
 from app import add_movie
 from load_movies import COLLECTION
 from movie_embeddings import MovieEmbeddingFunction
-from watchlist import read_watchlist, save_to_watchlist
+from watchlist import read_watchlist, remove_from_watchlist, save_to_watchlist
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -26,6 +27,7 @@ class MovieAppTest(unittest.TestCase):
                 result = subprocess.run(
                     [sys.executable, "-c", code], input=user_input,
                     text=True, capture_output=True, cwd=ROOT, timeout=120,
+                    env={**os.environ, "MOVIE_DETAILS_MODE": "offline"},
                 )
                 self.assertEqual(result.returncode, 0, result.stderr)
                 return result.stdout
@@ -39,10 +41,21 @@ class MovieAppTest(unittest.TestCase):
             entries = read_watchlist(Path(directory) / "watchlist.json")
             self.assertEqual(len(entries), 1)
             self.assertEqual(entries[0]["query"], plot)
+            self.assertEqual(entries[0]["summary_label"], "Plot excerpt (AI summary unavailable)")
+            self.assertIn("youtube.com/results?", entries[0]["trailer"]["url"])
             second = run_menu("4\n1\n" + plot + "\n\n3\n")
             self.assertIn("--- Saved watchlist ---", second)
             self.assertIn("Found while searching: " + plot, second)
+            self.assertIn(entries[0]["trailer"]["url"], second)
             self.assertIn("1. Ocean Garden (2003)", second)
+            cancelled = run_menu("5\n\n3\n")
+            self.assertNotIn("Removed Ocean Garden", cancelled)
+            self.assertEqual(len(read_watchlist(Path(directory) / "watchlist.json")), 1)
+            removed = run_menu("5\n1\n4\n3\n")
+            self.assertIn("Removed Ocean Garden from your watchlist.", removed)
+            self.assertIn("Your watchlist is empty.", removed)
+            reopened = run_menu("4\n3\n")
+            self.assertIn("Your watchlist is empty.", reopened)
             client = chromadb.PersistentClient(path=directory)
             embedding = MovieEmbeddingFunction()
             collection = client.get_collection(COLLECTION, embedding_function=embedding)
@@ -56,6 +69,21 @@ class MovieAppTest(unittest.TestCase):
             second_id = add_movie(collection, embedding, "Ocean Garden", plot, "2003")
             self.assertTrue(second_id.startswith("user:"))
             self.assertEqual(collection.count(), 2)  # Same title never reuses an ID.
+
+    def test_remove_preserves_other_entries_and_handles_missing_id(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "watchlist.json"
+            first = {"metadata": {"movie_id": "first", "title": "Same title"}, "plot": "First plot"}
+            second = {"metadata": {"movie_id": "second", "title": "Same title"}, "plot": "Other plot", "summary": "Saved details"}
+            save_to_watchlist(path, first, "first query")
+            save_to_watchlist(path, second, "second query")
+            self.assertFalse(remove_from_watchlist(path, "missing"))
+            self.assertTrue(remove_from_watchlist(path, "first"))
+            entries = read_watchlist(path)
+            self.assertEqual([entry["movie_id"] for entry in entries], ["second"])
+            self.assertEqual(entries[0]["summary"], "Saved details")
+            self.assertTrue(remove_from_watchlist(path, "second"))
+            self.assertEqual(read_watchlist(path), [])
 
     def test_corrupt_watchlist_is_not_overwritten(self):
         with tempfile.TemporaryDirectory() as directory:

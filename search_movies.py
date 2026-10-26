@@ -9,6 +9,7 @@ from chromadb.errors import NotFoundError
 from movie_embeddings import MovieEmbeddingFunction
 
 from load_movies import COLLECTION, STORE
+from recommendation_details import RecommendationDetails
 
 
 def build_filters(query, year_from=None, year_to=None):
@@ -59,7 +60,7 @@ def search_movies(collection, query, limit=3, where=None):
     ]
 
 
-def display_matches(query, matches, labels=()):
+def display_matches(query, matches, labels=(), full_plots=False):
     """Show results consistently in the one-shot script and interactive app."""
     if not matches:
         print("No stored movies meet those filters. Try a wider year range or load more movies.")
@@ -67,15 +68,27 @@ def display_matches(query, matches, labels=()):
     print(f"\nClosest movies for: {query.strip()}")
     if labels:
         print("Filters: " + "; ".join(labels))
-    print("These are similarity matches; review the plots to judge relevance.")
+    print("These are similarity matches. AI summaries can contain errors or spoilers.")
+    details = RecommendationDetails() if not full_plots else None
     for rank, match in enumerate(matches, 1):
         metadata = match["metadata"]
         year = metadata.get("release_date", "")[:4] or "date unknown"
         print(f"\n{rank}. {metadata['title']} ({year})")
         print(f"   Distance: {match['distance']:.4f} (lower means closer; not a probability)")
-        print("   Full plot (may contain spoilers):")
-        print(textwrap.fill(match["plot"], width=88,
+        if full_plots:
+            summary, label = match["plot"], "Full plot (may contain spoilers)"
+        else:
+            print("   Preparing summary and trailer link...", flush=True)
+            summary, label = details.summary(match)
+        print(f"   {label}:")
+        print(textwrap.fill(summary, width=88,
                             initial_indent="   ", subsequent_indent="   "))
+        if details is not None:
+            trailer = details.trailer(metadata)
+            match.update(summary=summary, summary_label=label, trailer=trailer)
+            print(f"   {trailer['label']}: {trailer['url']}")
+            if trailer.get("title"):
+                print(f"   {trailer['title']} — {trailer.get('channel', '')}")
 
 
 def main():
@@ -83,6 +96,7 @@ def main():
     parser.add_argument("query", nargs="?", help="Describe what you want to watch")
     parser.add_argument("--year-from", type=int, help="Earliest release year (inclusive)")
     parser.add_argument("--year-to", type=int, help="Latest release year (inclusive)")
+    parser.add_argument("--full-plots", action="store_true", help="Show full stored plots without calling summary/trailer services")
     args = parser.parse_args()
     try:
         query = args.query if args.query is not None else input("What do you want to watch? ")
@@ -108,7 +122,7 @@ def main():
         matches = search_movies(collection, query.strip(), where=where)
     except ValueError as error:
         parser.error(str(error))
-    display_matches(query, matches, labels)
+    display_matches(query, matches, labels, full_plots=args.full_plots)
 
 
 if __name__ == "__main__":
